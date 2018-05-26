@@ -1,5 +1,5 @@
-{% set version = "0.1.0" %}
-{% set sha256 = "792a6f4902d8e301caa06d35a6566623fc84ae2d425f9c052d1c1c73f6d44b52" %}
+{% set version = "0.2.0" %}
+{% set sha256 = "11bf85baf471a47bd8135b0ad550427bcf175df8d59bfbfc4c2614777294e49b" %}
 
 package:
     name: traittypes
@@ -11,7 +11,7 @@ source:
     sha256: {{ sha256 }}
 
 build:
-    number: 1
+    number: 0
     script: python setup.py install
 
 requirements:
@@ -19,7 +19,7 @@ requirements:
         - python
     run:
         - python
-        - traitlets >=4.2.2
+        - traitlets >=4.2.2,<5.0
 
 test:
     imports:
@@ -35,3 +35,5 @@ extra:
     recipe-maintainers:
         - SylvainCorlay
         - jasongrout
+        - maartenbreddels
+        - vidartf
