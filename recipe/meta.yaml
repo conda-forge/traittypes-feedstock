@@ -1,5 +1,5 @@
-{% set version = "0.2.0" %}
-{% set sha256 = "11bf85baf471a47bd8135b0ad550427bcf175df8d59bfbfc4c2614777294e49b" %}
+{% set version = "0.2.1" %}
+{% set sha256 = "be6fa26294733e7489822ded4ae25da5b4824a8a7a0e0c2dccfde596e3489bd6" %}
 
 package:
     name: traittypes
