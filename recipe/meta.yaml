@@ -12,7 +12,7 @@ source:
 
 build:
     noarch: python
-    number: 1
+    number: 2
     script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -21,7 +21,7 @@ requirements:
         - pip
     run:
         - python
-        - traitlets >=4.2.2,<5.0
+        - traitlets >=4.2.2,<6.0
 
 test:
     imports:
