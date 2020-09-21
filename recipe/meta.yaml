@@ -29,7 +29,7 @@ test:
 
 about:
     home: https://github.com/jupyter-incubator/traittypes
-    license: BSD 3-Clause
+    license: BSD-3-Clause
     summary: Trait types for NumPy, SciPy and friends
     license_file: LICENSE
 
