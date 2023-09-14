@@ -1,31 +1,41 @@
 {% set version = "0.2.1" %}
-{% set sha256 = "be6fa26294733e7489822ded4ae25da5b4824a8a7a0e0c2dccfde596e3489bd6" %}
 
 package:
     name: traittypes
     version: {{ version }}
 
 source:
-    fn: traittypes-{{ version }}.tar.gz
     url: https://pypi.io/packages/source/t/traittypes/traittypes-{{ version }}.tar.gz
-    sha256: {{ sha256 }}
+    sha256: be6fa26294733e7489822ded4ae25da5b4824a8a7a0e0c2dccfde596e3489bd6
 
 build:
     noarch: python
-    number: 2
-    script: python -m pip install --no-deps --ignore-installed .
+    number: 3
+    script: python -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
     host:
-        - python
+        - python >=3.5
         - pip
     run:
-        - python
-        - traitlets >=4.2.2,<6.0
+        - python >=3.5
+        # 5.10 finally deprecated Sentinel
+        - traitlets >=4.2.2,<5.10
 
 test:
+    requires:
+        - nose
+        - pandas
+        - pip
+        - pytest-cov
+        - xarray
+        # uses deprecated np.int
+        - numpy <1.20
     imports:
         - traittypes
+    commands:
+        - pip check
+        - pytest --pyargs traittypes -vv --tb=long --cov traittypes --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail -k "not (IntArray and bad_values)" --cov-fail-under=93
 
 about:
     home: https://github.com/jupyter-incubator/traittypes
@@ -39,3 +49,4 @@ extra:
         - jasongrout
         - maartenbreddels
         - vidartf
+        - bollwyvl
