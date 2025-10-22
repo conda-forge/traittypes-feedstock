@@ -1,41 +1,42 @@
-{% set version = "0.2.1" %}
-{% set sha256 = "be6fa26294733e7489822ded4ae25da5b4824a8a7a0e0c2dccfde596e3489bd6" %}
+{% set version = "0.2.2" %}
+{% set sha256 = "d75c817299398017ef4d4c1e82c9a3595a12900257de3c6548607bec585af90c" %}
 
 package:
-    name: traittypes
-    version: {{ version }}
+  name: traittypes
+  version: {{ version }}
 
 source:
-    fn: traittypes-{{ version }}.tar.gz
-    url: https://pypi.io/packages/source/t/traittypes/traittypes-{{ version }}.tar.gz
-    sha256: {{ sha256 }}
+  fn: traittypes-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/t/traittypes/traittypes-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-    noarch: python
-    number: 2
-    script: python -m pip install --no-deps --ignore-installed .
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-    host:
-        - python
-        - pip
-    run:
-        - python
-        - traitlets >=4.2.2,<6.0
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - traitlets >=4.2.2,<6.0
 
 test:
-    imports:
-        - traittypes
+  imports:
+    - traittypes
 
 about:
-    home: https://github.com/jupyter-incubator/traittypes
-    license: BSD-3-Clause
-    summary: Trait types for NumPy, SciPy and friends
-    license_file: LICENSE
+  home: https://github.com/jupyter-incubator/traittypes
+  license: BSD-3-Clause
+  summary: Trait types for NumPy, SciPy and friends
+  license_file: LICENSE
 
 extra:
-    recipe-maintainers:
-        - SylvainCorlay
-        - jasongrout
-        - maartenbreddels
-        - vidartf
+  recipe-maintainers:
+    - SylvainCorlay
+    - jasongrout
+    - maartenbreddels
+    - vidartf
+    - martinRenou
