@@ -20,7 +20,7 @@ requirements:
     - python
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - traitlets >=4.2.2,<6.0
 
 test:
